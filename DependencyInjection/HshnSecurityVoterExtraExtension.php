@@ -1,8 +1,8 @@
 <?php
 
-namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection;
+namespace Hshn\SecurityVoterExtraBundle\DependencyInjection;
 
-use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Voter\SecurityVoterFactoryInterface;
+use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class HshnSecurityVoterGeneratorExtension extends Extension
+class HshnSecurityVoterExtraExtension extends Extension
 {
     /**
      * @var SecurityVoterFactoryInterface[]

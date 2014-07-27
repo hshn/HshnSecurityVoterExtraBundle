@@ -1,6 +1,6 @@
 <?php
 
-namespace Hshn\SecurityVoterGeneratorBundle\Security\Voter;
+namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
 
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
