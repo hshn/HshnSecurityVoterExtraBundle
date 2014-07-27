@@ -43,7 +43,7 @@ class HshnSecurityVoterGeneratorExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         if (isset($config['voters'])) {
             $this->loadVoter($container, $loader, $config['voters']);
@@ -59,8 +59,15 @@ class HshnSecurityVoterGeneratorExtension extends Extension
      */
     private function loadVoter(ContainerBuilder $container, LoaderInterface $loader, array $config)
     {
-        foreach ($config as $voter) {
+        $loader->load('voter.yml');
+
+        foreach ($config as $name => $voter) {
             $factory = $this->getSecurityVoterFactory($voter['type']);
+            $factory->create($container, $id = "hshn_security_voter_extra.voter.$name", $voter);
+
+            $definition = $container->getDefinition($id);
+            $definition->setPublic(false);
+            $definition->addTag('security.voter');
         }
     }
 

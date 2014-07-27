@@ -1,0 +1,24 @@
+services:
+
+  # Vote
+  hshn_security_voter_extra.vote.abstract:
+    abstract: true
+    class: Hshn\SecurityVoterGeneratorBundle\Security\Voter\Vote
+    factory_class: Hshn\SecurityVoterGeneratorBundle\Security\Voter\Vote
+    factory_method: getInstance
+
+  hshn_security_voter_extra.vote.granted:
+    parent: hshn_security_voter_extra.vote.abstract
+    arguments: [granted]
+
+  hshn_security_voter_extra.vote.abstain:
+    parent: hshn_security_voter_extra.vote.abstract
+    arguments: [abstain]
+
+  hshn_security_voter_extra.vote.denied:
+    parent: hshn_security_voter_extra.vote.abstract
+    arguments: [denied]
+
+  hshn_security_voter_extra.vote.none:
+    parent: hshn_security_voter_extra.vote.abstract
+    arguments: [none]
