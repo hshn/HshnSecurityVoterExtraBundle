@@ -78,5 +78,5 @@ abstract class AbstractVoter implements VoterInterface
      *
      * @return boolean
      */
-    abstract function shouldBeGranted(TokenInterface $token, $object, $attribute);
+    abstract public function shouldBeGranted(TokenInterface $token, $object, $attribute);
 }
