@@ -20,34 +20,13 @@ abstract class AbstractVoter implements VoterInterface
     private $attributes;
 
     /**
-     * @var Vote
-     */
-    private $then;
-
-    /**
-     * @var Vote
-     */
-    private $else;
-
-    /**
-     * @var Vote
-     */
-    private $default;
-
-    /**
      * @param array $classes
      * @param array $attributes
-     * @param Vote  $then
-     * @param Vote  $else
-     * @param Vote  $default
      */
-    public function __construct(array $classes, array $attributes, Vote $then, Vote $else, Vote $default)
+    public function __construct(array $classes, array $attributes)
     {
         $this->classes = $classes;
         $this->attributes = $attributes;
-        $this->then = $then;
-        $this->else = $else;
-        $this->default = $default;
     }
 
     /**
@@ -75,23 +54,21 @@ abstract class AbstractVoter implements VoterInterface
             return VoterInterface::ACCESS_ABSTAIN;
         }
 
+        $result = VoterInterface::ACCESS_ABSTAIN;
+
         foreach ($attributes as $attribute) {
             if (!$this->supportsAttribute($attribute)) {
                 continue;
             }
 
-            if ($this->isGranted($token, $object, $attribute)) {
-                if ($this->then->willVote()) {
-                    return $this->then->getVoteValue();
-                }
-            } else {
-                if ($this->else->willVote()) {
-                    return $this->else->getVoteValue();
-                }
+            $result = VoterInterface::ACCESS_DENIED;
+
+            if ($this->shouldBeGranted($token, $object, $attribute)) {
+                return VoterInterface::ACCESS_GRANTED;
             }
         }
 
-        return $this->default->getVoteValue();
+        return $result;
     }
 
     /**
@@ -101,5 +78,5 @@ abstract class AbstractVoter implements VoterInterface
      *
      * @return boolean
      */
-    abstract function isGranted(TokenInterface $token, $object, $attribute);
+    abstract function shouldBeGranted(TokenInterface $token, $object, $attribute);
 }
