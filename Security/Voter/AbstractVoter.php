@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
-
 
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;

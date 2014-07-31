@@ -6,7 +6,6 @@ use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\SecurityVoterFactory
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
 
 class OwnerVoterFactory implements SecurityVoterFactoryInterface
 {

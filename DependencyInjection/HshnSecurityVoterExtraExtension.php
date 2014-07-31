@@ -72,7 +72,7 @@ class HshnSecurityVoterExtraExtension extends Extension
     }
 
     /**
-     * @param SecurityVoterFactoryInterface $factory
+     * @param  SecurityVoterFactoryInterface $factory
      * @return void
      */
     public function addSecurityVoterFactory(SecurityVoterFactoryInterface $factory)
