@@ -20,15 +20,12 @@ class ExpressionVoter extends AbstractVoter
     /**
      * @param array              $classes
      * @param array              $attributes
-     * @param Vote               $then
-     * @param Vote               $else
-     * @param Vote               $default
      * @param ExpressionLanguage $expressionLanguage
      * @param string             $expression
      */
-    public function __construct(array $classes, array $attributes, Vote $then, Vote $else, Vote $default, ExpressionLanguage $expressionLanguage, $expression)
+    public function __construct(array $classes, array $attributes, ExpressionLanguage $expressionLanguage, $expression)
     {
-        parent::__construct($classes, $attributes, $then, $else, $default);
+        parent::__construct($classes, $attributes);
 
         $this->expressionLanguage = $expressionLanguage;
         $this->expression = $expression;
