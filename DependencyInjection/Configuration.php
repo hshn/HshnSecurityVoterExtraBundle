@@ -62,10 +62,7 @@ class Configuration implements ConfigurationInterface
                             ->end()
                             ->arrayNode('classes')
                                 ->prototype('scalar')->end()
-                            ->end()
-                            ->append($this->addVotePartNode('then', 'granted'))
-                            ->append($this->addVotePartNode('else', 'denied'))
-                            ->append($this->addVotePartNode('default', 'abstain'));
+                            ->end();
 
         foreach ($this->securityVoterFactories as $voterFactory) {
             $voterBuilder->append($this->buildVoterNode($voterFactory));
@@ -84,27 +81,6 @@ class Configuration implements ConfigurationInterface
         $builder = new TreeBuilder();
         $root = $builder->root($voterFactory->getType());
         $voterFactory->addConfiguration($root);
-
-        return $root;
-    }
-
-    /**
-     * @param string $name
-     * @param string $defaultValue
-     *
-     * @return TreeBuilder
-     */
-    private function addVotePartNode($name, $defaultValue)
-    {
-        $builder = new TreeBuilder();
-        $root = $builder->root($name, 'scalar');
-        $root
-            ->defaultValue($defaultValue)
-            ->validate()
-                ->ifNotInArray(['abstain', 'granted', 'denied', 'none'])
-                ->thenInvalid("cannot vote %s on {$name} part")
-            ->end()
-        ;
 
         return $root;
     }
