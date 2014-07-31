@@ -51,9 +51,6 @@ class ExpressionVoterFactory implements SecurityVoterFactoryInterface
         $definition = new Definition('Hshn\SecurityVoterGeneratorBundle\Security\Voter\ExpressionVoter', [
             $config['classes'],
             $config['attributes'],
-            $this->getVoteRef($config['then']),
-            $this->getVoteRef($config['else']),
-            $this->getVoteRef($config['default']),
             new Reference('security.expression_language'),
             $config['expression']['expression'],
         ]);
