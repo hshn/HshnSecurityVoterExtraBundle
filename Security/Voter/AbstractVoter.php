@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
-
 
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
@@ -78,5 +76,5 @@ abstract class AbstractVoter implements VoterInterface
      *
      * @return boolean
      */
-    abstract function shouldBeGranted(TokenInterface $token, $object, $attribute);
+    abstract public function shouldBeGranted(TokenInterface $token, $object, $attribute);
 }
