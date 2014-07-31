@@ -57,14 +57,4 @@ class ExpressionVoterFactory implements SecurityVoterFactoryInterface
 
         $container->setDefinition($id, $definition);
     }
-
-    /**
-     * @param string $name
-     *
-     * @return Reference
-     */
-    private function getVoteRef($name)
-    {
-        return new Reference(sprintf('hshn_security_voter_extra.vote.%s', $name));
-    }
 }
