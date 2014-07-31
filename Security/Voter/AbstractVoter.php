@@ -80,7 +80,6 @@ abstract class AbstractVoter implements VoterInterface
                 continue;
             }
 
-            if ($this->isGranted($token, $object, $attribute)) {
                 if ($this->then->willVote()) {
                     return $this->then->getVoteValue();
                 }
@@ -88,6 +87,7 @@ abstract class AbstractVoter implements VoterInterface
                 if ($this->else->willVote()) {
                     return $this->else->getVoteValue();
                 }
+            if ($this->shouldBeGranted($token, $object, $attribute)) {
             }
         }
 
@@ -101,5 +101,5 @@ abstract class AbstractVoter implements VoterInterface
      *
      * @return boolean
      */
-    abstract function isGranted(TokenInterface $token, $object, $attribute);
+    abstract function shouldBeGranted(TokenInterface $token, $object, $attribute);
 }

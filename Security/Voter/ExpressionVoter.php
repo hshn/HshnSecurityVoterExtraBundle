@@ -37,7 +37,7 @@ class ExpressionVoter extends AbstractVoter
     /**
      * {@inheritdoc}
      */
-    public function isGranted(TokenInterface $token, $object, $attribute)
+    public function shouldBeGranted(TokenInterface $token, $object, $attribute)
     {
         $isGranted = $this->expressionLanguage->evaluate($this->expression, [
             'token'     => $token,
