@@ -3,7 +3,6 @@
 namespace Hshn\SecurityVoterExtraBundle\Tests\Security\Voter;
 
 use Hshn\SecurityVoterExtraBundle\Security\Voter\ExpressionVoter;
-use Symfony\Component\Security\Core\Authorization\ExpressionLanguage;
 
 class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 {
