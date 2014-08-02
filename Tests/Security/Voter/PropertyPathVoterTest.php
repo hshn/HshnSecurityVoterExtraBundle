@@ -2,13 +2,13 @@
 
 namespace Hshn\SecurityVoterExtraBundle\Tests\Security\Voter;
 
-use Hshn\SecurityVoterExtraBundle\Security\Voter\OwnerVoter;
+use Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class OwnerVoterTest extends \PHPUnit_Framework_TestCase
+class PropertyPathVoterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -16,7 +16,7 @@ class OwnerVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function testShouldBeGranted($expected, $tokenPath, $objectPath, TokenInterface $token, $object)
     {
-        $voter = new OwnerVoter([], [], $tokenPath, $objectPath);
+        $voter = new PropertyPathVoter([], [], $tokenPath, $objectPath);
 
         $this->assertEquals($expected, $voter->shouldBeGranted($token, $object, []));
     }

@@ -7,14 +7,14 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-class OwnerVoterFactory implements SecurityVoterFactoryInterface
+class PropertyPathVoterFactory implements SecurityVoterFactoryInterface
 {
     /**
      * @return string
      */
     public function getType()
     {
-        return 'owner';
+        return 'property_path';
     }
 
     /**
@@ -24,8 +24,8 @@ class OwnerVoterFactory implements SecurityVoterFactoryInterface
     {
         $builder
             ->children()
-                ->scalarNode('object_path')->end()
-                ->scalarNode('token_path')->end()
+                ->scalarNode('object_side')->end()
+                ->scalarNode('token_side')->end()
             ->end()
         ;
     }
@@ -39,11 +39,11 @@ class OwnerVoterFactory implements SecurityVoterFactoryInterface
             throw new \RuntimeException('Unable to use owner voter unless install symfony/property-access component.');
         }
 
-        $definition = new Definition('Hshn\SecurityVoterExtraBundle\Security\Voter\OwnerVoter', [
+        $definition = new Definition('Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter', [
             $config['classes'],
             $config['attributes'],
-            $config['owner']['token_path'],
-            $config['owner']['object_path'],
+            $config['property_path']['token_side'],
+            $config['property_path']['object_side'],
         ]);
 
         $container->setDefinition($id, $definition);

@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class OwnerVoter extends AbstractVoter
+class PropertyPathVoter extends AbstractVoter
 {
     /**
      * @var \Symfony\Component\PropertyAccess\PropertyAccessorInterface
@@ -18,26 +18,26 @@ class OwnerVoter extends AbstractVoter
     /**
      * @var string
      */
-    private $tokenPath;
+    private $tokenSidePath;
 
     /**
      * @var string
      */
-    private $objectPath;
+    private $objectSidePath;
 
     /**
      * @param array  $classes
      * @param array  $attributes
-     * @param string $tokenPath
-     * @param string $objectPath
+     * @param string $tokenSidePath
+     * @param string $objectSidePath
      */
-    public function __construct(array $classes, array $attributes, $tokenPath, $objectPath)
+    public function __construct(array $classes, array $attributes, $tokenSidePath, $objectSidePath)
     {
         parent::__construct($classes, $attributes);
 
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
-        $this->tokenPath = $tokenPath;
-        $this->objectPath = $objectPath;
+        $this->tokenSidePath = $tokenSidePath;
+        $this->objectSidePath = $objectSidePath;
     }
 
     /**
@@ -45,6 +45,6 @@ class OwnerVoter extends AbstractVoter
      */
     public function shouldBeGranted(TokenInterface $token, $object, $attribute)
     {
-        return $this->propertyAccessor->getValue($token, $this->tokenPath) === $this->propertyAccessor->getValue($object, $this->objectPath);
+        return $this->propertyAccessor->getValue($token, $this->tokenSidePath) === $this->propertyAccessor->getValue($object, $this->objectSidePath);
     }
 }
