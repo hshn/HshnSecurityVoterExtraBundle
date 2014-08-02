@@ -1,9 +1,21 @@
 {
+    "name": "hshn/security-voter-extra-bundle",
+    "description": "Symfony HshnSecurityVoterExtraBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shota hoshino",
+            "email": "lga0503@gmail.com"
+        }
+    ],
     "require": {
         "symfony/framework-bundle": "~2.4"
     },
     "require-dev": {
         "symfony/expression-language": "~2.4",
         "symfony/property-access": "~2.4"
+    },
+    "autoload": {
+        "psr-4": { "Hshn\\SecurityVoterExtraBundle\\": "" }
     }
 }
