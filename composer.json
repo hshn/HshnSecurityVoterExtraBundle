@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "~2.4"
+        "symfony/framework-bundle": "~2.4",
+        "hshn/class-matcher-bundle": "~0.1"
     },
     "require-dev": {
         "symfony/expression-language": "~2.4",
