@@ -16,7 +16,7 @@ class PropertyPathVoterTest extends \PHPUnit_Framework_TestCase
      */
     public function testShouldBeGranted($expected, $tokenPath, $objectPath, TokenInterface $token, $object)
     {
-        $voter = new PropertyPathVoter([], [], $tokenPath, $objectPath);
+        $voter = new PropertyPathVoter($this->getMock('Hshn\ClassMatcher\MatcherInterface'), [], $tokenPath, $objectPath);
 
         $this->assertEquals($expected, $voter->shouldBeGranted($token, $object, []));
     }
