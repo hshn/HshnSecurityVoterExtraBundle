@@ -61,7 +61,9 @@ class Configuration implements ConfigurationInterface
                                 ->prototype('scalar')->end()
                             ->end()
                             ->arrayNode('classes')
-                                ->prototype('scalar')->end()
+                                ->children()
+                                    ->scalarNode('matcher')->end()
+                                ->end()
                             ->end();
 
         foreach ($this->securityVoterFactories as $voterFactory) {

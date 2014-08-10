@@ -2,12 +2,9 @@
 
 namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
 
-class PropertyPathVoterFactory implements SecurityVoterFactoryInterface
+class PropertyPathVoterFactory extends AbstractVoterFactory
 {
     /**
      * @return string
@@ -31,21 +28,27 @@ class PropertyPathVoterFactory implements SecurityVoterFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function create(ContainerBuilder $container, $id, array $config)
+    public function getVoterClass()
     {
         if (!class_exists('Symfony\Component\PropertyAccess\PropertyAccess')) {
             throw new \RuntimeException('Unable to use owner voter unless install symfony/property-access component.');
         }
 
-        $definition = new Definition('Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter', [
-            $config['classes'],
-            $config['attributes'],
-            $config['property_path']['token_side'],
-            $config['property_path']['object_side'],
-        ]);
+        return 'Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter';
+    }
 
-        $container->setDefinition($id, $definition);
+    /**
+     * @param array $config
+     *
+     * @return array
+     */
+    public function getArguments(array $config)
+    {
+        return [
+            $config['token_side'],
+            $config['object_side'],
+        ];
     }
 }

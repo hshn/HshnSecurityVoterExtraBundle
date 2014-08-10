@@ -28,5 +28,5 @@ interface SecurityVoterFactoryInterface
      *
      * @return void
      */
-    public function create(ContainerBuilder $container, $id, array $config);
+    public function create(ContainerBuilder $container, $id, $name, array $config);
 }
