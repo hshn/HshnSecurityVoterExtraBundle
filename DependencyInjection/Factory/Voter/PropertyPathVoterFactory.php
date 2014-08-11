@@ -7,7 +7,7 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 class PropertyPathVoterFactory extends AbstractVoterFactory
 {
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getType()
     {
@@ -20,9 +20,15 @@ class PropertyPathVoterFactory extends AbstractVoterFactory
     public function addConfiguration(ArrayNodeDefinition $builder)
     {
         $builder
+            ->beforeNormalization()
+                ->ifString()
+                ->then(function ($v) {
+                    return ['object_side' => $v];
+                })
+            ->end()
             ->children()
                 ->scalarNode('object_side')->end()
-                ->scalarNode('token_side')->end()
+                ->scalarNode('token_side')->defaultValue('user')->end()
             ->end()
         ;
     }
