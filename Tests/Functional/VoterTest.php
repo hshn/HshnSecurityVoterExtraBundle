@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class VoterTest extends Webtestcase
+class VoterTest extends WebTestCase
 {
     /**
      * @test
