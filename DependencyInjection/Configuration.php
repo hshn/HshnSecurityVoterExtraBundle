@@ -2,7 +2,7 @@
 
 namespace Hshn\SecurityVoterExtraBundle\DependencyInjection;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\SecurityVoterFactoryInterface;
+use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -61,7 +61,9 @@ class Configuration implements ConfigurationInterface
                                 ->prototype('scalar')->end()
                             ->end()
                             ->arrayNode('classes')
-                                ->prototype('scalar')->end()
+                                ->children()
+                                    ->scalarNode('matcher')->end()
+                                ->end()
                             ->end();
 
         foreach ($this->securityVoterFactories as $voterFactory) {

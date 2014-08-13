@@ -3,8 +3,8 @@
 namespace Hshn\SecurityVoterExtraBundle;
 
 use Hshn\SecurityVoterExtraBundle\DependencyInjection\HshnSecurityVoterExtraExtension;
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\Factory\ExpressionVoterFactory;
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\Factory\PropertyPathVoterFactory;
+use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter\ExpressionVoterFactory;
+use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter\PropertyPathVoterFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -2,6 +2,7 @@
 
 namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
 
+use Hshn\ClassMatcher\MatcherInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
@@ -26,14 +27,14 @@ class PropertyPathVoter extends AbstractVoter
     private $objectSidePath;
 
     /**
-     * @param array  $classes
-     * @param array  $attributes
-     * @param string $tokenSidePath
-     * @param string $objectSidePath
+     * @param MatcherInterface $matcher
+     * @param array            $attributes
+     * @param string           $tokenSidePath
+     * @param string           $objectSidePath
      */
-    public function __construct(array $classes, array $attributes, $tokenSidePath, $objectSidePath)
+    public function __construct(MatcherInterface $matcher, array $attributes, $tokenSidePath, $objectSidePath)
     {
-        parent::__construct($classes, $attributes);
+        parent::__construct($matcher, $attributes);
 
         $this->propertyAccessor = PropertyAccess::createPropertyAccessor();
         $this->tokenSidePath = $tokenSidePath;

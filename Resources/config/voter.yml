@@ -1,1 +1,5 @@
 services:
+  hshn_security_voter_extra.voter.abstract.def:
+    abstract: true
+    class: Hshn\SecurityVoterExtraBundle\Security\Voter\AbstractVoter
+    arguments: [~, ~]

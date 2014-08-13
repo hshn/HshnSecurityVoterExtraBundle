@@ -1,17 +1,14 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\Factory;
+namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Voter\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class ExpressionVoterFactory implements SecurityVoterFactoryInterface
+class ExpressionVoterFactory extends AbstractVoterFactory
 {
     /**
      * {@inheritdoc}
@@ -40,21 +37,25 @@ class ExpressionVoterFactory implements SecurityVoterFactoryInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function create(ContainerBuilder $container, $id, array $config)
+    public function getVoterClass()
     {
         if (!class_exists('Symfony\Component\ExpressionLanguage\ExpressionLanguage')) {
             throw new \RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
         }
 
-        $definition = new Definition('Hshn\SecurityVoterGeneratorBundle\Security\Voter\ExpressionVoter', [
-            $config['classes'],
-            $config['attributes'],
-            new Reference('security.expression_language'),
-            $config['expression']['expression'],
-        ]);
+        return 'Hshn\SecurityVoterExtraBundle\Security\Voter\ExpressionVoter';
+    }
 
-        $container->setDefinition($id, $definition);
+    /**
+     * @return array
+     */
+    public function getArguments(array $config)
+    {
+        return [
+            new Reference('security.expression_language'),
+            $config['expression'],
+        ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
 
+use Hshn\ClassMatcher\MatcherInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
@@ -18,14 +19,14 @@ class ExpressionVoter extends AbstractVoter
     private $expression;
 
     /**
-     * @param array              $classes
+     * @param MatcherInterface   $matcher
      * @param array              $attributes
      * @param ExpressionLanguage $expressionLanguage
      * @param string             $expression
      */
-    public function __construct(array $classes, array $attributes, ExpressionLanguage $expressionLanguage, $expression)
+    public function __construct(MatcherInterface $matcher, array $attributes, ExpressionLanguage $expressionLanguage, $expression)
     {
-        parent::__construct($classes, $attributes);
+        parent::__construct($matcher, $attributes);
 
         $this->expressionLanguage = $expressionLanguage;
         $this->expression = $expression;

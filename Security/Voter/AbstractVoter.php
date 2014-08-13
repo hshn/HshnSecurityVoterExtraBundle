@@ -2,15 +2,19 @@
 
 namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
 
+use Hshn\ClassMatcher\MatcherInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
+/**
+ * @author Shota Hoshino <lga0503@gmail.com>
+ */
 abstract class AbstractVoter implements VoterInterface
 {
     /**
-     * @var array
+     * @var \Hshn\ClassMatcher\MatcherInterface
      */
-    private $classes;
+    private $classMatcher;
 
     /**
      * @var array
@@ -18,12 +22,12 @@ abstract class AbstractVoter implements VoterInterface
     private $attributes;
 
     /**
-     * @param array $classes
-     * @param array $attributes
+     * @param MatcherInterface $classMatcher
+     * @param array            $attributes
      */
-    public function __construct(array $classes, array $attributes)
+    public function __construct(MatcherInterface $classMatcher, array $attributes)
     {
-        $this->classes = $classes;
+        $this->classMatcher = $classMatcher;
         $this->attributes = $attributes;
     }
 
@@ -32,7 +36,7 @@ abstract class AbstractVoter implements VoterInterface
      */
     public function supportsAttribute($attribute)
     {
-        return in_array($attribute, $this->attributes, true);
+        return empty($this->attributes) || in_array($attribute, $this->attributes, true);
     }
 
     /**
@@ -40,7 +44,7 @@ abstract class AbstractVoter implements VoterInterface
      */
     public function supportsClass($class)
     {
-        return in_array($class, $this->classes, true);
+        return $this->classMatcher->matches($class);
     }
 
     /**
