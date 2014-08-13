@@ -20,7 +20,7 @@ abstract class AbstractVoterFactory implements SecurityVoterFactoryInterface
      */
     public function create(ContainerBuilder $container, $id, $name, array $config)
     {
-        $container->setDefinition($matcher = "hshn_security_voter_extra.class_matcher.{$name}", new ProviderMatcherDefinition($config['classes']['matcher']));
+        $this->setMatcherDefinition($container, $matcher = "hshn_security_voter_extra.class_matcher.{$name}", $config['class_matcher']);
 
         $voter = new AbstractVoterDefinition(new Reference($matcher), $config['attributes']);
         $voter->setClass($this->getVoterClass());
@@ -30,6 +30,22 @@ abstract class AbstractVoterFactory implements SecurityVoterFactoryInterface
         }
 
         $container->setDefinition($id, $voter);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param string           $name
+     * @param string           $matcher
+     *
+     * @return void
+     */
+    private function setMatcherDefinition(ContainerBuilder $container, $name, $matcher)
+    {
+        if ($matcher) {
+            $container->setDefinition($name, new ProviderMatcherDefinition($matcher));
+        } else {
+            $container->setAlias($name, 'hshn_class_matcher.class_matcher.anything.def');
+        }
     }
 
     /**
