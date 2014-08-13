@@ -23,12 +23,12 @@ class PropertyPathVoterFactory extends AbstractVoterFactory
             ->beforeNormalization()
                 ->ifString()
                 ->then(function ($v) {
-                    return ['object_side' => $v];
+                    return ['object' => $v];
                 })
             ->end()
             ->children()
-                ->scalarNode('object_side')->end()
-                ->scalarNode('token_side')->defaultValue('user')->end()
+                ->scalarNode('object')->end()
+                ->scalarNode('token')->defaultValue('user')->end()
             ->end()
         ;
     }
@@ -53,8 +53,8 @@ class PropertyPathVoterFactory extends AbstractVoterFactory
     public function getArguments(array $config)
     {
         return [
-            $config['token_side'],
-            $config['object_side'],
+            $config['token'],
+            $config['object'],
         ];
     }
 }

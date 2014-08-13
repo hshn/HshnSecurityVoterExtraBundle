@@ -47,8 +47,8 @@ hshn_security_voter_extra:
             attributes: [OWNER]
             classes: { matcher: post }
             property_path:
-                token_side:  user
-                object_side: user # It means '$token.getUser() === $object.getUser()'
+                token:  user
+                object: user # It means '$token.getUser() === $object.getUser()'
 ```
 
 ### Step 4: Make parameters more secure
