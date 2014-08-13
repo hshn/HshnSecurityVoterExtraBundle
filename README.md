@@ -41,11 +41,11 @@ hshn_security_voter_extra:
     voters:
         voter_1:
             attributes: [OWNER]
-            classes: { matcher: post }
+            class_matcher: post
             expression: 'user === object.getUser()'
         voter_2:
             attributes: [OWNER]
-            classes: { matcher: post }
+            class_matcher: post
             property_path:
                 token:  user
                 object: user # It means '$token.getUser() === $object.getUser()'
