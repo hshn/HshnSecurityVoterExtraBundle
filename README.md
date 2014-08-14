@@ -3,6 +3,7 @@ HshnSecurityVoterExtraBundle
 
 [![Build Status](https://travis-ci.org/hshn/HshnSecurityVoterExtraBundle.svg?branch=test)](https://travis-ci.org/hshn/HshnSecurityVoterExtraBundle)
 
+This bundle makes easy to define simple security voters of symfony.
 
 ## Installation
 
