@@ -1,8 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\Security\Voter;
-
+namespace Hshn\SecurityVoterGeneratorBundle\Security\Voter;
 
 use Hshn\ClassMatcher\MatcherInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;

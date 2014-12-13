@@ -19,7 +19,10 @@
         "symfony/security-bundle": "~2.4"
     },
     "autoload": {
-        "psr-4": { "Hshn\\SecurityVoterGeneratorBundle\\": "" }
+        "psr-4": { "Hshn\\SecurityVoterGeneratorBundle\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Hshn\\SecurityVoterGeneratorBundle\\": "tests" }
     },
     "extra": {
         "branch-alias": {

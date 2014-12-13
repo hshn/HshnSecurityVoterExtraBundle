@@ -1,6 +1,6 @@
 <?php
 
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\Functional;
+namespace Hshn\SecurityVoterGeneratorBundle\Functional;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;

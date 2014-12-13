@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\Functional;
+namespace Hshn\SecurityVoterGeneratorBundle\Functional;
 
-use Hshn\SecurityVoterGeneratorBundle\Tests\Functional\Fixtures\Entity\Post;
+use Hshn\SecurityVoterGeneratorBundle\Functional\Fixtures\Entity\Post;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\Functional;
+namespace Hshn\SecurityVoterGeneratorBundle\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase as BaseWebTestCase;
@@ -16,7 +16,7 @@ class WebTestCase extends BaseWebTestCase
      */
     protected static function getKernelClass()
     {
-        return 'Hshn\SecurityVoterGeneratorBundle\Tests\Functional\AppKernel';
+        return 'Hshn\SecurityVoterGeneratorBundle\Functional\AppKernel';
     }
 
     /**
