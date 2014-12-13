@@ -1,6 +1,6 @@
 {
-    "name": "hshn/security-voter-extra-bundle",
-    "description": "Symfony HshnSecurityVoterExtraBundle",
+    "name": "hshn/security-voter-generator-bundle",
+    "description": "Symfony HshnSecurityVoterGeneratorBundle",
     "license": "MIT",
     "authors": [
         {
@@ -19,11 +19,11 @@
         "symfony/security-bundle": "~2.4"
     },
     "autoload": {
-        "psr-4": { "Hshn\\SecurityVoterExtraBundle\\": "" }
+        "psr-4": { "Hshn\\SecurityVoterGeneratorBundle\\": "" }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "1.0.x-dev"
         }
     }
 }

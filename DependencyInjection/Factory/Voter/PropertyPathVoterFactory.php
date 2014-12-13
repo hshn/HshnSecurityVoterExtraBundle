@@ -1,6 +1,6 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\Voter;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
@@ -42,7 +42,7 @@ class PropertyPathVoterFactory extends AbstractVoterFactory
             throw new \RuntimeException('Unable to use owner voter unless install symfony/property-access component.');
         }
 
-        return 'Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter';
+        return 'Hshn\SecurityVoterGeneratorBundle\Security\Voter\PropertyPathVoter';
     }
 
     /**

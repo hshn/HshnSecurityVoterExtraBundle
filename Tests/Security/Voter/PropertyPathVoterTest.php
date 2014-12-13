@@ -1,8 +1,8 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\Tests\Security\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\Tests\Security\Voter;
 
-use Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter;
+use Hshn\SecurityVoterGeneratorBundle\Security\Voter\PropertyPathVoter;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * @author Shota Hoshino <lga0503@gmail.com>
  */
-class HshnSecurityVoterExtraExtension extends Extension
+class HshnSecurityVoterGeneratorExtension extends Extension
 {
     /**
      * @var SecurityVoterFactoryInterface[]
@@ -67,7 +67,7 @@ class HshnSecurityVoterExtraExtension extends Extension
 
         foreach ($config as $name => $voter) {
             $factory = $this->getSecurityVoterFactory($voter['type']);
-            $factory->create($container, $id = "hshn_security_voter_extra.voter.$name", $name, $voter);
+            $factory->create($container, $id = "hshn_security_voter_generator.voter.$name", $name, $voter);
 
             $definition = $container->getDefinition($id);
             $definition->setPublic($public);
@@ -86,6 +86,8 @@ class HshnSecurityVoterExtraExtension extends Extension
 
     /**
      * @param string $type
+     *
+     * @return SecurityVoterFactoryInterface|null
      */
     private function getSecurityVoterFactory($type)
     {

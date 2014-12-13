@@ -1,13 +1,13 @@
-HshnSecurityVoterExtraBundle
+HshnSecurityVoterGeneratorBundle
 ============================
 
-[![Build Status](https://travis-ci.org/hshn/HshnSecurityVoterExtraBundle.svg?branch=test)](https://travis-ci.org/hshn/HshnSecurityVoterExtraBundle)
+[![Build Status](https://travis-ci.org/hshn/HshnSecurityVoterGeneratorBundle.svg?branch=rename)](https://travis-ci.org/hshn/HshnSecurityVoterGeneratorBundle)
 
-This bundle makes easy to define simple security voters of symfony.
+This bundle provides the way to define definition of simple security voters for symfony
 
 ## Installation
 
-### Step 1: Download HshnSecurityVoterExtraBundle using composer
+### Step 1: Download HshnSecurityVoterGeneratorBundle using composer
 
 ```bash
 $ php composer.phar require hshh/security-voter-extra-bundle:dev-master
@@ -24,12 +24,12 @@ public function registerBundles()
     $bundles = array(
         // ...
         new \Hshn\ClassMatcherBundle\HshnClassMatcherBundle(),
-        new \Hshn\SecurityVoterExtraBundle\HshnSecurityVoterExtraBundle(),
+        new \Hshn\SecurityVoterGeneratorBundle\HshnSecurityVoterGeneratorBundle(),
     );
 }
 ```
 
-### Step 3: Configure the HshnSecurityVoterExtraBundle
+### Step 3: Configure the HshnSecurityVoterGeneratorBundle
 
 ```yaml
 # app/config/config.yml
@@ -38,7 +38,7 @@ hshn_class_matcher:
     matchers:
         post: { equals: AcmeBundle\Entity\Post }
 
-hshn_security_voter_extra:
+hshn_security_voter_generator:
     voters:
         voter_1:
             attributes: [OWNER]

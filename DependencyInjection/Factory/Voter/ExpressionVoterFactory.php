@@ -1,6 +1,6 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\Voter;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\Reference;
@@ -45,7 +45,7 @@ class ExpressionVoterFactory extends AbstractVoterFactory
             throw new \RuntimeException('Unable to use expressions as the Symfony ExpressionLanguage component is not installed.');
         }
 
-        return 'Hshn\SecurityVoterExtraBundle\Security\Voter\ExpressionVoter';
+        return 'Hshn\SecurityVoterGeneratorBundle\Security\Voter\ExpressionVoter';
     }
 
     /**

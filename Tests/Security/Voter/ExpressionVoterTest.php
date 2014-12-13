@@ -1,8 +1,8 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\Tests\Security\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\Tests\Security\Voter;
 
-use Hshn\SecurityVoterExtraBundle\Security\Voter\ExpressionVoter;
+use Hshn\SecurityVoterGeneratorBundle\Security\Voter\ExpressionVoter;
 
 class ExpressionVoterTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\Tests\Security\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\Tests\Security\Voter;
 
 
 use Hshn\ClassMatcher\MatcherInterface;
@@ -69,7 +69,7 @@ class AbstractVoterTest extends \PHPUnit_Framework_TestCase
      */
     private function getVoter(MatcherInterface $matcher, array $attributes)
     {
-        $voter = $this->getMockForAbstractClass('Hshn\SecurityVoterExtraBundle\Security\Voter\AbstractVoter', [$matcher, $attributes]);
+        $voter = $this->getMockForAbstractClass('Hshn\SecurityVoterGeneratorBundle\Security\Voter\AbstractVoter', [$matcher, $attributes]);
 
         return $voter;
     }

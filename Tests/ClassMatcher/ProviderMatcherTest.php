@@ -1,8 +1,8 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\Tests\ClassMatcher;
-use Hshn\SecurityVoterExtraBundle\ClassMatcher\ProviderMatcher;
+namespace Hshn\SecurityVoterGeneratorBundle\Tests\ClassMatcher;
+use Hshn\SecurityVoterGeneratorBundle\ClassMatcher\ProviderMatcher;
 
 
 /**
