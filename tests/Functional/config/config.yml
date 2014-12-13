@@ -24,7 +24,7 @@ security:
 
 hshn_class_matcher:
   matchers:
-    post: { equals: Hshn\SecurityVoterGeneratorBundle\Tests\Functional\Fixtures\Entity\Post }
+    post: { equals: Hshn\SecurityVoterGeneratorBundle\Functional\Fixtures\Entity\Post }
 
 hshn_security_voter_generator:
   voters:

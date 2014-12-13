@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\Functional\Fixtures\Entity;
+namespace Hshn\SecurityVoterGeneratorBundle\Functional\Fixtures\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 

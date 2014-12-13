@@ -1,9 +1,6 @@
 <?php
 
-
-namespace Hshn\SecurityVoterGeneratorBundle\Tests\ClassMatcher;
-use Hshn\SecurityVoterGeneratorBundle\ClassMatcher\ProviderMatcher;
-
+namespace Hshn\SecurityVoterGeneratorBundle\ClassMatcher;
 
 /**
  * @author Shota Hoshino <lga0503@gmail.com>

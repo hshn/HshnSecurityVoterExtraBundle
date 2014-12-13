@@ -2,7 +2,7 @@
 
 namespace Hshn\SecurityVoterGeneratorBundle;
 
-use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\HshnSecurityVoterExtraExtension;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\HshnSecurityVoterGeneratorExtension;
 use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\Voter\ExpressionVoterFactory;
 use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\Voter\PropertyPathVoterFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,7 +14,7 @@ class HshnSecurityVoterGeneratorBundle extends Bundle
     {
         parent::build($container);
 
-        /* @var $extension HshnSecurityVoterExtraExtension */
+        /* @var $extension HshnSecurityVoterGeneratorExtension */
         $extension = $container->getExtension('hshn_security_voter_generator');
         $extension->addSecurityVoterFactory(new ExpressionVoterFactory());
         $extension->addSecurityVoterFactory(new PropertyPathVoterFactory());
