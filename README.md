@@ -52,7 +52,7 @@ hshn_security_voter_generator:
                 object: user # It means '$token.getUser() === $object.getUser()'
 ```
 
-### Step 4: Make parameters more secure
+### Step 4: Add some authorization checking
 
 ```php
 <?php
@@ -63,7 +63,13 @@ hshn_security_voter_generator:
  */
 public function bar1Action(AcmeBundle\Entity\Post $post)
 {
+    // symfony 2.5
     if (!$this->get('security.context')->isGranted('OWNER', $post)) {
+        throw $this->createNotFoundException();
+    }
+
+    // symfony 2.6+
+    if (!$this->get('security.authorization_checker')->isGranted('OWNER', $post)) {
         throw $this->createNotFoundException();
     }
 }
