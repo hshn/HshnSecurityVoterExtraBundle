@@ -10,7 +10,7 @@ This bundle provides the way to define definition of simple security voters for 
 ### Step 1: Download HshnSecurityVoterGeneratorBundle using composer
 
 ```bash
-$ php composer.phar require hshh/security-voter-extra-bundle:dev-master
+$ php composer.phar require hshh/security-voter-generator-bundle:dev-master
 ```
 
 ### Step 2: Enable the bundle
@@ -59,7 +59,7 @@ hshn_security_voter_generator:
 // controller/FooController.php
 
 /**
- * without extra bundles
+ * without any extra bundles
  */
 public function bar1Action(AcmeBundle\Entity\Post $post)
 {
