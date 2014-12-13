@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\ClassMatcher;
+namespace Hshn\SecurityVoterGeneratorBundle\ClassMatcher;
 
 use Hshn\ClassMatcher\MatcherInterface;
 use Hshn\ClassMatcherBundle\ClassMatcher\ClassMatcherProvider;

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\Voter;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Definition\AbstractVoterDefinition;
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Definition\ProviderMatcherDefinition;
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Definition\AbstractVoterDefinition;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Definition\ProviderMatcherDefinition;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -20,7 +20,7 @@ abstract class AbstractVoterFactory implements SecurityVoterFactoryInterface
      */
     public function create(ContainerBuilder $container, $id, $name, array $config)
     {
-        $this->setMatcherDefinition($container, $matcher = "hshn_security_voter_extra.class_matcher.{$name}", $config['class_matcher']);
+        $this->setMatcherDefinition($container, $matcher = "hshn_security_voter_generator.class_matcher.{$name}", $config['class_matcher']);
 
         $voter = new AbstractVoterDefinition(new Reference($matcher), $config['attributes']);
         $voter->setClass($this->getVoterClass());

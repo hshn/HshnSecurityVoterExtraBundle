@@ -1,8 +1,8 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection;
 
-use Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
+use Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory\SecurityVoterFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

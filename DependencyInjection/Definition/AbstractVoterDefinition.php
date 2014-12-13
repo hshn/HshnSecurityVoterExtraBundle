@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Definition;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Definition;
 
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
@@ -17,7 +17,7 @@ class AbstractVoterDefinition extends DefinitionDecorator
      * @param array     $attributes
      * @param string    $parent
      */
-    public function __construct(Reference $matcher, array $attributes, $parent = 'hshn_security_voter_extra.voter.abstract.def')
+    public function __construct(Reference $matcher, array $attributes, $parent = 'hshn_security_voter_generator.voter.abstract.def')
     {
         parent::__construct($parent);
 

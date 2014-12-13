@@ -1,6 +1,7 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\DependencyInjection\Factory;
+namespace Hshn\SecurityVoterGeneratorBundle\DependencyInjection\Factory;
+
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

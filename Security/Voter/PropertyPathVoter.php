@@ -1,6 +1,6 @@
 <?php
 
-namespace Hshn\SecurityVoterExtraBundle\Security\Voter;
+namespace Hshn\SecurityVoterGeneratorBundle\Security\Voter;
 
 use Hshn\ClassMatcher\MatcherInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;

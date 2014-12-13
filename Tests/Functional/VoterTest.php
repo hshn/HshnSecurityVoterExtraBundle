@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Hshn\SecurityVoterExtraBundle\Tests\Functional;
+namespace Hshn\SecurityVoterGeneratorBundle\Tests\Functional;
 
-use Hshn\SecurityVoterExtraBundle\Tests\Functional\Fixtures\Entity\Post;
+use Hshn\SecurityVoterGeneratorBundle\Tests\Functional\Fixtures\Entity\Post;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
@@ -18,7 +18,7 @@ class VoterTest extends WebTestCase
      */
     public function testVoter1($expected, TokenInterface $token, $object, array $attributes)
     {
-        $this->assertInstanceOf('Hshn\SecurityVoterExtraBundle\Security\Voter\ExpressionVoter', $voter = $this->getVoter('voter_1'));
+        $this->assertInstanceOf('Hshn\SecurityVoterGeneratorBundle\Security\Voter\ExpressionVoter', $voter = $this->getVoter('voter_1'));
 
         $this->assertEquals($expected, $voter->vote($token, $object, $attributes));
     }
@@ -29,7 +29,7 @@ class VoterTest extends WebTestCase
      */
     public function testVoter2($expected, TokenInterface $token, $object, array $attributes)
     {
-        $this->assertInstanceOf('Hshn\SecurityVoterExtraBundle\Security\Voter\PropertyPathVoter', $voter = $this->getVoter('voter_2'));
+        $this->assertInstanceOf('Hshn\SecurityVoterGeneratorBundle\Security\Voter\PropertyPathVoter', $voter = $this->getVoter('voter_2'));
 
         $this->assertEquals($expected, $voter->vote($token, $object, $attributes));
     }
@@ -86,6 +86,6 @@ class VoterTest extends WebTestCase
      */
     private function getVoter($name)
     {
-        return $this->get("hshn_security_voter_extra.voter.{$name}");
+        return $this->get("hshn_security_voter_generator.voter.{$name}");
     }
 }

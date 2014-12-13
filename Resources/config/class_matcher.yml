@@ -1,7 +1,7 @@
 services:
-  hshn_security_voter_extra.class_matcher.provider_matcher.def:
+  hshn_security_voter_generator.class_matcher.provider_matcher.def:
     abstract: true
-    class: Hshn\SecurityVoterExtraBundle\ClassMatcher\ProviderMatcher
+    class: Hshn\SecurityVoterGeneratorBundle\ClassMatcher\ProviderMatcher
     arguments: [@hshn_class_matcher.matcher_provider]
 
 
